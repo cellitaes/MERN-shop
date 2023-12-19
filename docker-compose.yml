@@ -1,0 +1,43 @@
+version: '3'
+services:
+    mongodb:
+        container_name: 'mongo'
+        image: 'mongo'
+        volumes:
+            - data:/data/db
+        expose:
+            - 27017
+        restart: always
+        env_file:
+            - ./env/mongo.env
+    backend:
+        container_name: backend
+        build: ./backend
+        ports:
+            - '5000:5000'
+        volumes:
+            - /app/node_modules
+            - ./backend:/app
+        env_file:
+            - ./backend/.env
+        depends_on:
+            - mongodb
+    frontend:
+        container_name: frontend
+        build: ./frontend
+        ports:
+            - '3000:3000'
+        volumes:
+            - ./frontend/src:/app/src
+            - /app/node_modules
+        stdin_open: true
+        restart: always
+        depends_on:
+            - backend
+        environment:
+            - WDS_SOCKET_HOST=127.0.0.1
+            - CHOKIDAR_USEPOLLING=true
+            - WATCHPACK_POLLING=true
+
+volumes:
+    data:
