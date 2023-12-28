@@ -1,0 +1,69 @@
+.button {
+    font: inherit;
+    padding: $button-padding-y $button-padding-x;
+    border: $button-border;
+    border-radius: $button-border-radius;
+    background: $button-bg;
+    color: $button-color;
+    cursor: pointer;
+    margin-right: 1rem;
+    text-decoration: none;
+    display: inline-block;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover,
+    &:active {
+        background: $button-hover-bg;
+        border-color: $button-hover-border;
+    }
+
+    &--inverse {
+        background: $button-inverse-bg;
+        color: $button-inverse-color;
+
+        &:hover,
+        &:active {
+            color: $button-inverse-hover-color;
+            background: $button-inverse-hover-bg;
+        }
+    }
+
+    &--danger {
+        background: $button-danger-bg;
+        border-color: $button-danger-border;
+
+        &:hover,
+        &:active {
+            background: $button-danger-hover-bg;
+            border-color: $button-danger-hover-border;
+        }
+    }
+
+    &:disabled,
+    &:hover:disabled,
+    &:active:disabled {
+        background: $button-disabled-bg;
+        color: $button-disabled-color;
+        border-color: $button-disabled-border;
+        cursor: $button-disabled-cursor;
+    }
+
+    &--small {
+        font-size: $button-small-font-size;
+    }
+
+    &--medium {
+        font-size: $button-medium-font-size;
+    }
+
+    &--big {
+        font-size: $button-big-font-size;
+    }
+
+    &--align-right {
+        @include text-align(right);
+    }
+}

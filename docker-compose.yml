@@ -19,7 +19,7 @@ services:
             - /app/node_modules
             - ./backend:/app
         env_file:
-            - ./backend/.env
+            - ./env/backend.env
         depends_on:
             - mongodb
     frontend:
@@ -32,12 +32,10 @@ services:
             - /app/node_modules
         stdin_open: true
         restart: always
+        env_file:
+            - ./env/frontend.env
         depends_on:
             - backend
-        environment:
-            - WDS_SOCKET_HOST=127.0.0.1
-            - CHOKIDAR_USEPOLLING=true
-            - WATCHPACK_POLLING=true
 
 volumes:
     data:

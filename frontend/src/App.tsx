@@ -1,11 +1,22 @@
-import React from 'react';
+import Routes from './Routes';
+import { Provider } from 'react-redux';
+
+import MainHeader from './shared/components/Navigation/MainHeader';
+import MainNavigation from './shared/components/Navigation/MainNavigation';
+
+import { store } from './store/store';
+
+import './styles/main.scss';
 
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                <p>REACT</p>
-            </header>
+            <Provider store={store}>
+                <MainHeader>
+                    <MainNavigation />
+                </MainHeader>
+                <Routes />
+            </Provider>
         </div>
     );
 }

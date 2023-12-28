@@ -1,0 +1,27 @@
+.cart {
+    max-width: 50vw;
+    width: 45vw;
+    background-color: #313131;
+    color: $color-white;
+    @include margin-y(5vh);
+
+    div {
+        @include center-elements(space-between, center);
+
+        h2 {
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+        }
+    }
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-order {
+    text-align: right;
+    margin-top: 2vh;
+}

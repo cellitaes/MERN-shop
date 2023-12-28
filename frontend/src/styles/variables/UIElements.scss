@@ -1,0 +1,26 @@
+$modal-z-index: 100;
+$modal-top: 22vh;
+$modal-left: 10%;
+$modal-width: 80%;
+$modal-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+$modal-border-radius: 8px;
+$modal-header-padding-y: 1rem;
+$modal-header-padding-x: 0.5rem;
+$modal-content-padding-y: 1rem;
+$modal-content-padding-x: 0.5rem;
+$modal-footer-padding-y: 1rem;
+$modal-footer-padding-x: 0.5rem;
+$modal-enter-transform: translateY(-10rem);
+$modal-enter-opacity: 0;
+$modal-enter-active-transform: translateY(0);
+$modal-enter-active-opacity: 1;
+$modal-exit-transform: translateY(0);
+$modal-exit-opacity: 1;
+$modal-exit-active-transform: translateY(-10rem);
+$modal-exit-active-opacity: 0;
+$modal-transition-duration: 200ms;
+
+$spinner-ring-border: 5px;
+
+$card-border-radius: 6px;
+$card-padding: 1rem;

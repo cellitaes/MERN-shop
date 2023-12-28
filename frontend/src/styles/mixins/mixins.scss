@@ -1,0 +1,17 @@
+@mixin text-align($align) {
+    text-align: $align;
+}
+
+@mixin center-elements($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin margin-x($margin) {
+    margin: 0 $margin;
+}
+
+@mixin margin-y($margin) {
+    margin: $margin 0;
+}

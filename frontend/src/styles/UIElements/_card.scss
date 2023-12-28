@@ -1,0 +1,9 @@
+.card {
+    position: relative;
+    margin: 0;
+    box-shadow: $card-box-shadow;
+    border-radius: $card-border-radius;
+    padding: $card-padding;
+    overflow: hidden;
+    background: $card-bg;
+}

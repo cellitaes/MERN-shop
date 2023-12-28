@@ -1,0 +1,46 @@
+.main-navigation__menu-btn {
+    width: $main-navigation-btn-size;
+    height: $main-navigation-btn-size;
+    background: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: $main-navigation-btn-spacing;
+    cursor: pointer;
+
+    span {
+        display: block;
+        width: $main-navigation-btn-size;
+        height: $main-navigation-line-height;
+        background: $main-navigation-color;
+    }
+}
+
+.main-navigation__title {
+    color: $main-navigation-color;
+    margin-left: 2vw;
+
+    a {
+        text-decoration: none;
+        color: $main-navigation-color;
+    }
+}
+
+.main-navigation__header-nav {
+    display: none;
+}
+
+.main-navigation__drawer-nav {
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .main-navigation__menu-btn {
+        display: none;
+    }
+
+    .main-navigation__header-nav {
+        display: block;
+    }
+}
