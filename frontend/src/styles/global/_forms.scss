@@ -1,0 +1,42 @@
+form {
+    div {
+        @include center-elements(center, center);
+        padding: 1vh;
+        flex-direction: column;
+
+        label {
+            color: $color-white;
+            margin-bottom: 0.2rem;
+            font-size: 1.3rem;
+            margin-right: auto;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        input.error {
+            background-color: $button-danger-bg;
+            border-color: $button-danger-bg;
+            box-shadow: 0 0 2px $color-red;
+            color: $color-white;
+
+            &:active,
+            &:focus {
+                background-color: $button-danger-hover-bg;
+                border-color: $button-danger-hover-bg;
+            }
+        }
+
+        div.error {
+            color: $color-red;
+            padding: 0.5vh;
+        }
+    }
+}

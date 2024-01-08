@@ -31,6 +31,14 @@ const cartSlice = createSlice({
                 existingItem.quantity++;
                 existingItem.totalPrice += newItem.price;
             }
+
+            window.localStorage.setItem(
+                'cart',
+                JSON.stringify({
+                    totalQuantity: state.totalQuantity,
+                    cartItems: state.items,
+                })
+            );
         },
         removeItemFromCart(state, action: PayloadAction<string>) {
             const id = action.payload;
@@ -45,10 +53,38 @@ const cartSlice = createSlice({
                 existingItem.totalPrice -= existingItem.price;
             }
             state.totalQuantity--;
+
+            window.localStorage.setItem(
+                'cart',
+                JSON.stringify({
+                    totalQuantity: state.totalQuantity,
+                    cartItems: state.items,
+                })
+            );
+        },
+        clearCart(state) {
+            state.items = [];
+            state.totalQuantity = 0;
+
+            window.localStorage.setItem('cart', '');
+        },
+        setCart(state, action) {
+            const { cartItems, totalQuantity } = action.payload;
+
+            state.items = cartItems;
+            state.totalQuantity = totalQuantity;
+
+            window.localStorage.setItem(
+                'cart',
+                JSON.stringify({
+                    totalQuantity: state.totalQuantity,
+                    cartItems: state.items,
+                })
+            );
         },
     },
 });
 
 export const cartActions = cartSlice.actions;
 
-export const cartReducers = cartSlice.reducer;
+export const cartReducer = cartSlice.reducer;

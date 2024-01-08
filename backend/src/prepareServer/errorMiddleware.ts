@@ -9,6 +9,7 @@ export const errorMiddleware = (app: Express) => {
             }
             res.status(error.code || 500);
             res.json({
+                ok: false,
                 message: error.message || 'An unknown error occurred!',
             });
         }

@@ -1,8 +1,10 @@
 @import './variables/variables';
 @import './mixins/mixins';
+@import './global/global';
 @import './navigation/navigation';
 @import './formElements/formElements';
 @import './UIElements/UIElements';
 @import './shop/shop';
 @import './cart/cart';
 @import './order/order';
+@import './auth/auth';

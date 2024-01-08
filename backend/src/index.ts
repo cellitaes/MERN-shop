@@ -11,6 +11,7 @@ import { routeNotFoundMiddleware } from './prepareServer/routeNotFoundMiddleware
 import productsRouter from './routes/productsRoutes';
 import categoriesRoutes from './routes/categoriesRoutes';
 import ordersRouter from './routes/orderRoutes';
+import authRouter from './routes/authRoutes';
 
 const app = express();
 
@@ -25,14 +26,13 @@ app.use(setCors);
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/products', productsRouter);
 app.use('/api/orders', ordersRouter);
+app.use('/api/users', authRouter);
 
 routeNotFoundMiddleware(app);
 errorMiddleware(app);
 
 mongoose
-    .connect(
-        `mongodb+srv://shop:shop@shop.iilqcru.mongodb.net/?retryWrites=true&w=majority`
-    )
+    .connect(`mongodb://mongodb:27017/test`)
     .then(() => {
         console.log('app is listening');
         app.listen(5000);

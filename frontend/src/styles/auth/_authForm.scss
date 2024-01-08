@@ -1,0 +1,34 @@
+.auth-form {
+    @include center-elements(center, center);
+    flex-direction: column;
+    width: 30vw;
+
+    h1 {
+        color: $primary-color;
+    }
+
+    form {
+        width: 80%;
+
+        div {
+            label {
+                color: $color-black;
+            }
+        }
+
+        .redirect-links {
+            flex-direction: row;
+
+            & a {
+                margin-left: 0.2rem;
+                text-decoration: none;
+                color: $primary-color;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .action-buttons {
+        text-align: center;
+    }
+}

@@ -29,8 +29,10 @@ const CartItem: FC<{ item: CartItemInterface; renderActions?: boolean }> = ({
             <header>
                 <h3>{name}</h3>
                 <div className={'price'}>
-                    ${totalPrice.toFixed(2)}{' '}
-                    <span className={'itemprice'}>
+                    <span className="price__totalPrice">
+                        ${totalPrice.toFixed(2)}
+                    </span>
+                    <span className={'price__itemprice'}>
                         (${price.toFixed(2)}/item)
                     </span>
                 </div>

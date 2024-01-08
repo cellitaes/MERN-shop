@@ -28,12 +28,16 @@
     .price {
         font-size: 1.5rem;
         font-weight: bold;
-    }
 
-    .itemprice {
-        font-weight: normal;
-        font-size: 1rem;
-        font-style: italic;
+        &__itemprice {
+            font-weight: normal;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        &__totalPrice {
+            margin-right: 0.3rem;
+        }
     }
 
     .actions {

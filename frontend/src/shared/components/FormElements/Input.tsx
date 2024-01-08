@@ -21,7 +21,7 @@ const Input: FC<{
     className?: string;
 }> = ({ formField, touched, errors, field, className }) => {
     return (
-        <div className="form-field--center">
+        <div>
             <label className={className}>{formField.label}</label>
             <input
                 {...field}

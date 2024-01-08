@@ -11,7 +11,7 @@ export const getCategoryByName = async (
         return await Category.findOne({ name: categoryName });
     } catch (err) {
         const error = new HttpError(
-            'Something went wrong, could not fetch products.',
+            'Something went wrong, could not fetch categories.',
             500
         );
         return next(error);

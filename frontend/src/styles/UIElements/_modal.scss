@@ -19,11 +19,13 @@
     }
 
     &__content {
+        display: block;
         padding: $modal-content-padding-y $modal-content-padding-x;
     }
 
     &__footer {
         padding: $modal-footer-padding-y $modal-footer-padding-x;
+        text-align: right;
     }
 
     @media (min-width: 768px) {

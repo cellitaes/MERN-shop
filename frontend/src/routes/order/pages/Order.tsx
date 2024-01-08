@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Formik, Form, Field, FormikProps } from 'formik';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Button from '../../../shared/components/FormElements/Button';
 import Cart from '../../cart/pages/Cart';
@@ -11,9 +11,10 @@ import LoadingSpinner from '../../../shared/components/UIElements/LoadingSpinner
 
 import { getTotalPrice } from '../../../shared/util/functions/cart';
 
-import { useHttpClient } from '../../../shared/hooks/http-hook';
 import { BACKEND_URL } from '../../../config';
+import { useHttpClient } from '../../../shared/hooks/http-hook';
 import { ButtonType } from '../../../models/enums/buttonTypeEnum';
+import { cartActions } from '../../../store/slices/cartSlice';
 import { RootState } from '../../../store/store';
 import OrderSchema from '../../../shared/util/yupSchema/orderSchema';
 
@@ -69,9 +70,8 @@ const initState = {
 };
 
 const Order = () => {
-    const cartItems = useSelector(
-        (store: RootState) => store.cartReducers.items
-    );
+    const cartItems = useSelector((store: RootState) => store.cart.items);
+    const dispatch = useDispatch();
 
     const { isLoading, error, clearError, sendRequest } = useHttpClient();
 
@@ -95,7 +95,10 @@ const Order = () => {
             body
         );
 
-        if (!error) navigate('/products');
+        if (!error) {
+            dispatch(cartActions.clearCart());
+            navigate('/products');
+        }
     };
 
     if (!cartItems.length) return;
@@ -137,7 +140,6 @@ const Order = () => {
                                                     touched={touched}
                                                     errors={errors}
                                                     field={field}
-                                                    className="color-secondary"
                                                 />
                                             )}
                                         </Field>

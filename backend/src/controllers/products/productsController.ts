@@ -38,7 +38,10 @@ export const getProductsFromShop = async (
     );
     const productsCount = await getProductsCount(next, categoryFilter);
 
-    if (!products || !productsCount) {
+    if (
+        typeof products === 'undefined' ||
+        typeof productsCount === 'undefined'
+    ) {
         const error = new HttpError(
             'Something went wrong, could not fetch products.',
             404

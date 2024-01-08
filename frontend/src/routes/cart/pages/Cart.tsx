@@ -10,9 +10,7 @@ import Button from '../../../shared/components/FormElements/Button';
 import { getTotalPrice } from '../../../shared/util/functions/cart';
 
 const Cart: FC<{ orderView: boolean }> = ({ orderView = false }) => {
-    const cartItems = useSelector(
-        (store: RootState) => store.cartReducers.items
-    );
+    const cartItems = useSelector((store: RootState) => store.cart.items);
 
     const totalPrice = getTotalPrice(cartItems);
 
@@ -20,7 +18,7 @@ const Cart: FC<{ orderView: boolean }> = ({ orderView = false }) => {
         <Card className={'cart'}>
             <div>
                 <h2>Your Shopping Cart {!cartItems.length && 'is empty'}</h2>
-                <h3>${totalPrice}</h3>
+                <h3>${totalPrice.toFixed(2)}</h3>
             </div>
             <ul>
                 {cartItems.map((item) => (

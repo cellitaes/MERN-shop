@@ -1,11 +1,12 @@
 import { FC } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Card from '../../../shared/components/UIElements/Card';
 import { Product } from '../../../interfaces/Product';
 import Button from '../../../shared/components/FormElements/Button';
 
+import { BACKEND_URL } from '../../../config';
 import { Size } from '../../../models/enums/sizeEnum';
-import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../store/slices/cartSlice';
 
 const ProductItem: FC<Product> = ({
@@ -42,10 +43,7 @@ const ProductItem: FC<Product> = ({
                     <div className={'price'}>${price.toFixed(2)}</div>
                 </header>
                 <div className="product-image">
-                    <img
-                        alt={description}
-                        src={`http://localhost:5000/${image}`}
-                    />
+                    <img alt={description} src={`${BACKEND_URL}/${image}`} />
                 </div>
                 <p className="description">{description}</p>
                 <div className={'actions'}>
