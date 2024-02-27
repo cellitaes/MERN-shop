@@ -2,6 +2,7 @@ import Routes from './Routes';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import Footer from './shared/components/Footer/Footer';
 import MainHeader from './shared/components/Navigation/MainHeader';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 
@@ -18,6 +19,7 @@ function App() {
                         <MainNavigation />
                     </MainHeader>
                     <Routes />
+                    <Footer />
                 </PersistGate>
             </Provider>
         </div>

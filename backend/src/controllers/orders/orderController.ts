@@ -20,6 +20,12 @@ export const placeOrder = async (
 
     const newOrder = new Order(req.body);
 
-    const response = await postOrder(next, newOrder);
+    let response;
+    try {
+        response = await postOrder(newOrder);
+    } catch (err) {
+        return next(err);
+    }
+
     res.status(201).json({ status: 'ok', orderId: response._id });
 };

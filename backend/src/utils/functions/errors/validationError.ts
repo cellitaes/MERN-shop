@@ -1,7 +1,7 @@
 import { Request, NextFunction } from 'express';
 import { validationResult } from 'express-validator';
 
-import HttpError from '../../models/http-error';
+import HttpError from '../../../models/http-error';
 
 export const throwErrorWhenValidationFailed = (
     req: Request,

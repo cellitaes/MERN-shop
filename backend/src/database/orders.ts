@@ -1,8 +1,6 @@
-import { NextFunction } from 'express';
-
 import HttpError from '../models/http-error';
 
-export const postOrder = async (next: NextFunction, newOrder: any) => {
+export const postOrder = async (newOrder: any) => {
     try {
         return await newOrder.save();
     } catch (err) {
@@ -10,6 +8,6 @@ export const postOrder = async (next: NextFunction, newOrder: any) => {
             'Something went wrong, could not save order',
             500
         );
-        return next(error);
+        throw error;
     }
 };

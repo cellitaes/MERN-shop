@@ -1,0 +1,7 @@
+.table-container {
+    @include margin-y(0);
+    @include margin-x(auto);
+    margin-top: $main-header-height;
+    width: 85%;
+    height: calc(100vh - 2 * $main-header-height);
+}

@@ -4,12 +4,12 @@ import HttpError from '../../models/http-error';
 
 import { getUser, postUser } from '../../database/users';
 
-import { createToken } from '../../functions/auth/token';
+import { createToken } from '../../utils/functions/auth/token';
 import {
     hashPassword,
     validatePassword,
-} from '../../functions/auth/passwordHasing';
-import { throwErrorWhenValidationFailed } from '../../functions/errors/validationError';
+} from '../../utils/functions/auth/passwordHasing';
+import { throwErrorWhenValidationFailed } from '../../utils/functions/errors/validationError';
 
 export const registerUser = async (
     req: Request,
@@ -19,7 +19,14 @@ export const registerUser = async (
     throwErrorWhenValidationFailed(req, next);
 
     const userData = req.body;
-    const existingUser = await getUser(next, userData.email);
+    let existingUser, createdUser, token;
+
+    try {
+        existingUser = await getUser(userData.email);
+    } catch (err) {
+        return next(err);
+    }
+
     if (existingUser) {
         const error = new HttpError(
             'User exists already, please login instead.',
@@ -38,9 +45,12 @@ export const registerUser = async (
         return next(error);
     }
 
-    const createdUser = await postUser(next, userData);
+    try {
+        createdUser = await postUser(userData);
+    } catch (err) {
+        return next(err);
+    }
 
-    let token;
     try {
         if (!createdUser) throw new Error();
         token = createToken(createdUser._id, createdUser.email);
@@ -65,7 +75,15 @@ export const loginUser = async (
     next: NextFunction
 ) => {
     const userData = req.body;
-    const existingUser = await getUser(next, userData.email);
+    let existingUser,
+        token,
+        isValidPassword = false;
+
+    try {
+        existingUser = await getUser(userData.email);
+    } catch (err) {
+        return next(err);
+    }
 
     if (!existingUser) {
         const error = new HttpError(
@@ -75,7 +93,6 @@ export const loginUser = async (
         return next(error);
     }
 
-    let isValidPassword = false;
     try {
         isValidPassword = await validatePassword(
             userData.password,
@@ -97,7 +114,6 @@ export const loginUser = async (
         return next(error);
     }
 
-    let token;
     try {
         token = createToken(existingUser._id, existingUser.email);
     } catch (err) {

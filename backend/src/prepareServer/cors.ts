@@ -6,7 +6,7 @@ export const setCors = (req: Request, res: Response, next: NextFunction) => {
         'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     );
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Methods', '*');
 
     if (req.method === 'OPTIONS') {
         res.sendStatus(200);

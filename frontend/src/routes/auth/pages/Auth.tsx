@@ -69,7 +69,7 @@ const Auth = () => {
     const formFields = isRegistration ? registerFields : loginFields;
 
     const handleAuthSubmit = async (formValues: AuthFormValues) => {
-        const authUrl = `${BACKEND_URL}/api/users${
+        const authUrl = `${BACKEND_URL}/api/users/auth${
             isRegistration ? '/register' : '/login'
         }`;
         const method = 'POST';

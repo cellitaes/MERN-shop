@@ -1,12 +1,15 @@
 import { Routes as AppRoutes, Route } from 'react-router-dom';
 
+import AdminRoute from './shared/components/Routes/AdminRoutes';
 import Auth from './routes/auth/pages/Auth';
 import Cart from './routes/cart/pages/Cart';
-import Shop from './routes/shop/pages/Shop';
+import ManageProducts from './routes/manageProducts/pages/ManageProducts';
+import ManageUsers from './routes/users/pages/ManageUsers';
 import Order from './routes/order/pages/Order';
 import PageNotFound from './routes/errorPages/pages/PageNotFound';
 import PrivateRoute from './shared/components/Routes/PrivateRoute';
 import PublicRoute from './shared/components/Routes/PublicRoute';
+import Shop from './routes/shop/pages/Shop';
 import UnauthorizedPage from './routes/errorPages/pages/UnauthorizedPage';
 
 const Routes = () => {
@@ -23,6 +26,11 @@ const Routes = () => {
             <Route path="/" element={<PrivateRoute />}>
                 <Route path="/order" element={<Order />} />
                 <Route path="/cart" element={<Cart />} />
+            </Route>
+
+            <Route path="/" element={<AdminRoute />}>
+                <Route path="/manage/users" element={<ManageUsers />} />
+                <Route path="/manage/products" element={<ManageProducts />} />
             </Route>
         </AppRoutes>
     );

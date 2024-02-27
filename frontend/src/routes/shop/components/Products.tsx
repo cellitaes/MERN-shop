@@ -31,9 +31,9 @@ const Products = () => {
             const res = await sendRequest(
                 `${BACKEND_URL}/api/products?category=${searchParams.get(
                     'category'
-                )}&page=${
-                    searchParams.get('page') ?? 0
-                }&pageSize=${rowsPerPage}`
+                )}&skip=${
+                    +(searchParams.get('page') ?? 0) * rowsPerPage
+                }&limit=${rowsPerPage}`
             );
 
             productsCount.current = res?.dataLength;

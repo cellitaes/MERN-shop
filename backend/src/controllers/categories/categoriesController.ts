@@ -1,8 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
-import HttpError from '../../models/http-error';
-import Category from '../../models/category';
 
-export const getCategories = async (
+import HttpError from '../../models/http-error';
+
+import { getCategories } from '../../database/categories';
+
+export const getAllCategories = async (
     _: Request,
     res: Response,
     next: NextFunction
@@ -10,13 +12,9 @@ export const getCategories = async (
     let categories;
 
     try {
-        categories = await Category.find({});
+        categories = await getCategories();
     } catch (err) {
-        const error = new HttpError(
-            'Something went wrong, could not fetch categories.',
-            500
-        );
-        return next(error);
+        return next(err);
     }
 
     if (!categories) {

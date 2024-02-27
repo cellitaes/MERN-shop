@@ -12,6 +12,8 @@ import productsRouter from './routes/productsRoutes';
 import categoriesRoutes from './routes/categoriesRoutes';
 import ordersRouter from './routes/orderRoutes';
 import authRouter from './routes/authRoutes';
+import userRouter from './routes/userRoutes';
+import picturesRouter from './routes/pictureRoutes';
 
 const app = express();
 
@@ -26,7 +28,9 @@ app.use(setCors);
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/products', productsRouter);
 app.use('/api/orders', ordersRouter);
-app.use('/api/users', authRouter);
+app.use('/api/users/auth', authRouter);
+app.use('/api/users', userRouter);
+app.use('/api/pictures', picturesRouter);
 
 routeNotFoundMiddleware(app);
 errorMiddleware(app);
