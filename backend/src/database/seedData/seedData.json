@@ -1,0 +1,79 @@
+{
+    "categories": [
+        { "name": "Gumowe kaczki" },
+        { "name": "Lepsze gumowe kaczki" }
+    ],
+    "products": [
+        {
+            "name": "kaczuszka",
+            "description": "kaczuszka do debuggowania",
+            "price": 39.99,
+            "image": "uploads/images/kaczuszka.jpg",
+            "category": "Lepsze gumowe kaczki"
+        },
+        {
+            "name": "kaczuszka 2",
+            "description": "kaczuszka do debuggowania lepsza, sama znajduje błędy",
+            "price": 19.99,
+            "image": "uploads/images/kaczuszka.jpg",
+            "category": "Lepsze gumowe kaczki"
+        },
+        {
+            "name": "kaczuszka 3",
+            "description": "kaczuszka do debuggowania, jest super",
+            "price": 6.99,
+            "image": "uploads/images/kaczuszka.jpg",
+            "category": "Gumowe kaczki"
+        },
+        {
+            "name": "kaczuszka 3",
+            "description": "kaczuszka kąpieli",
+            "price": 19.99,
+            "image": "uploads/images/kaczuszka.jpg",
+            "category": "Gumowe kaczki"
+        },
+        {
+            "name": "kaczuszka gumowa",
+            "description": "kaczuszka gumowa",
+            "price": 1.99,
+            "image": "uploads/images/kaczuszka.jpg",
+            "category": "Gumowe kaczki"
+        },
+        {
+            "name": "kaczuszka",
+            "description": "kaczuszka kaczuszkowa",
+            "price": 9.99,
+            "image": "uploads/images/kaczuszka.jpg",
+            "category": "Gumowe kaczki"
+        },
+        {
+            "name": "kaczuszka",
+            "description": "taka o sobie kaczuszka",
+            "price": 23.8,
+            "image": "uploads/images/kaczuszka copy.jpg",
+            "category": "Gumowe kaczki"
+        },
+        {
+            "name": "kaczuszka",
+            "description": "taka o sobie kaczuszka",
+            "price": 23.82,
+            "image": "uploads/images/kaczuszka copy.jpg",
+            "category": "Gumowe kaczki"
+        }
+    ],
+    "users": [
+        {
+            "name": "Test",
+            "surname": "Testowy",
+            "email": "test@test.pl",
+            "isAdmin": true,
+            "password": "$2a$12$N1skD1a4woC3gseS.epIzOi3sC4Sly7eXoRHzLwZzDhU0wA8a9zVy"
+        },
+        {
+            "name": "Test",
+            "surname": "Testowy",
+            "email": "test2@test.pl",
+            "password": "$2a$12$N1skD1a4woC3gseS.epIzOi3sC4Sly7eXoRHzLwZzDhU0wA8a9zVy"
+        }
+    ]
+}

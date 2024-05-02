@@ -58,7 +58,6 @@ export const useHttpClient = () => {
 
     useEffect(() => {
         return () => {
-            // eslint-disable-next-line react-hooks/exhaustive-deps
             setIsLoading(false);
             clearError();
             activeHttpRequests.current.forEach((abortCtrl) =>

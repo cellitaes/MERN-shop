@@ -14,6 +14,7 @@ import ordersRouter from './routes/orderRoutes';
 import authRouter from './routes/authRoutes';
 import userRouter from './routes/userRoutes';
 import picturesRouter from './routes/pictureRoutes';
+import testDataRoutes from './routes/testDataRoutes';
 
 const app = express();
 
@@ -24,6 +25,8 @@ app.use(
 );
 app.use(logRequest);
 app.use(setCors);
+
+app.use('/api/testData', testDataRoutes);
 
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/products', productsRouter);
@@ -36,7 +39,8 @@ routeNotFoundMiddleware(app);
 errorMiddleware(app);
 
 mongoose
-    .connect(`mongodb://mongodb:27017/test`)
+    // .connect(`mongodb://mongodb:27017/test`)
+    .connect(`mongodb+srv://shop:shop@shop.iilqcru.mongodb.net/`)
     .then(() => {
         console.log('app is listening');
         app.listen(5000);

@@ -33,7 +33,7 @@ const ProductItem: FC<Product> = ({
     };
 
     return (
-        <li className={'item'} id={_id}>
+        <li className={'item'} id={_id} data-cy="product-item">
             <Card>
                 <header>
                     <div>
@@ -47,7 +47,11 @@ const ProductItem: FC<Product> = ({
                 </div>
                 <p className="description">{description}</p>
                 <div className={'actions'}>
-                    <Button size={Size.small} onClick={addProductToCart}>
+                    <Button
+                        size={Size.small}
+                        onClick={addProductToCart}
+                        data-cy="add-to-cart"
+                    >
                         Add to Cart
                     </Button>
                 </div>

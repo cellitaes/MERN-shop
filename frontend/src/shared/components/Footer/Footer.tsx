@@ -1,5 +1,5 @@
 const Footer = () => {
-    return <footer>footer</footer>;
+    return <footer className="app-footer">footer</footer>;
 };
 
 export default Footer;

@@ -23,6 +23,7 @@ const accountMenuItems = [
         icon: <SettingsApplicationsIcon fontSize="large" />,
         text: 'Settings',
         adminOption: false,
+        'data-cy': 'settings',
     },
     {
         key: 'manageProducts',
@@ -30,6 +31,7 @@ const accountMenuItems = [
         icon: <StoreIcon fontSize="large" />,
         text: 'Manage products',
         adminOption: true,
+        'data-cy': 'manage-products',
     },
     {
         key: 'manageUsers',
@@ -37,6 +39,7 @@ const accountMenuItems = [
         icon: <PeopleIcon fontSize="large" />,
         text: 'Manage users',
         adminOption: true,
+        'data-cy': 'manage-users',
     },
     {
         key: 'logout',
@@ -44,6 +47,7 @@ const accountMenuItems = [
         icon: <LogoutIcon fontSize="large" />,
         text: 'Logout',
         adminOption: false,
+        'data-cy': 'logout',
     },
 ];
 
@@ -86,33 +90,33 @@ const AccountMenu: FC<AccountMenuProps> = ({
             {showMenu && (
                 <div ref={accountMenuRef} className="account-menu-container">
                     <ul>
-                        {accountMenuItems.map((accItem) => {
-                            if (
-                                accItem.adminOption &&
-                                accItem.adminOption !== isAdmin
-                            )
-                                return null;
-                            return (
-                                <li key={accItem.key}>
-                                    <NavLink
-                                        to={accItem.to}
-                                        className="account-menu-container__anchor"
-                                        onClick={
-                                            accItem.key === 'logout'
-                                                ? logout
-                                                : handleCloseAccountMenu
-                                        }
-                                    >
-                                        <span className="account-menu-icon">
-                                            {accItem.icon}
-                                        </span>
-                                        <span className="account-menu-text">
-                                            {accItem.text}
-                                        </span>
-                                    </NavLink>
-                                </li>
-                            );
-                        })}
+                        {accountMenuItems.map(
+                            ({ adminOption, key, to, icon, text, ...rest }) => {
+                                if (adminOption && adminOption !== isAdmin)
+                                    return null;
+                                return (
+                                    <li key={key}>
+                                        <NavLink
+                                            to={to}
+                                            className="account-menu-container__anchor"
+                                            onClick={
+                                                key === 'logout'
+                                                    ? logout
+                                                    : handleCloseAccountMenu
+                                            }
+                                            {...rest}
+                                        >
+                                            <span className="account-menu-icon">
+                                                {icon}
+                                            </span>
+                                            <span className="account-menu-text">
+                                                {text}
+                                            </span>
+                                        </NavLink>
+                                    </li>
+                                );
+                            }
+                        )}
                     </ul>
                 </div>
             )}

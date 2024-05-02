@@ -1,4 +1,4 @@
-import { Routes as AppRoutes, Route } from 'react-router-dom';
+import { Routes as AppRoutes, Navigate, Route } from 'react-router-dom';
 
 import AdminRoute from './shared/components/Routes/AdminRoutes';
 import Auth from './routes/auth/pages/Auth';
@@ -19,8 +19,9 @@ const Routes = () => {
                 <Route path="/" element={<Shop />} />
                 <Route path="/auth/:type?" element={<Auth />} />
                 <Route path="/products" element={<Shop />} />
-                <Route path="/unauthorized" component={<UnauthorizedPage />} />
-                <Route path="*" element={<PageNotFound />} />
+                <Route path="/unauthorized" element={<UnauthorizedPage />} />
+                <Route path="*" element={<Navigate to="/403" />} />
+                <Route path="/403" element={<PageNotFound />} />
             </Route>
 
             <Route path="/" element={<PrivateRoute />}>

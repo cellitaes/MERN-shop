@@ -185,6 +185,11 @@ const Auth = () => {
                                                     !props.isValid
                                                 }
                                                 type={ButtonType.submit}
+                                                data-cy={
+                                                    isRegistration
+                                                        ? 'Register'
+                                                        : 'Login'
+                                                }
                                             >
                                                 {isRegistration
                                                     ? 'Register'

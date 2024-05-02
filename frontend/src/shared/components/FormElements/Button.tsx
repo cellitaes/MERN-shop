@@ -15,6 +15,7 @@ type ButtonProps = {
     to?: string;
     type?: ButtonType;
     onClick?: () => void;
+    rest?: any;
 };
 
 const Button: FC<ButtonProps> = ({
@@ -28,6 +29,7 @@ const Button: FC<ButtonProps> = ({
     to,
     type = ButtonType.button,
     onClick,
+    ...rest
 }) => {
     if (href) {
         return (
@@ -36,6 +38,7 @@ const Button: FC<ButtonProps> = ({
                     inverse && 'button--inverse'
                 } ${danger && 'button--danger'} ${className}`}
                 href={href}
+                {...rest}
             >
                 {children}
             </a>
@@ -48,6 +51,7 @@ const Button: FC<ButtonProps> = ({
                 className={`button button--${size || 'default'} ${
                     inverse && 'button--inverse'
                 } ${danger && 'button--danger'} ${className}`}
+                {...rest}
             >
                 {children}
             </Link>
@@ -61,6 +65,7 @@ const Button: FC<ButtonProps> = ({
             type={type}
             onClick={onClick}
             disabled={disabled}
+            {...rest}
         >
             {children}
         </button>

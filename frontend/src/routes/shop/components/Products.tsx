@@ -80,6 +80,7 @@ const Products = () => {
                             name="categories"
                             id="categories"
                             onChange={handleCategoryChange}
+                            data-cy="category-selection"
                         >
                             <option value="">-</option>
                             {categories.map((category) => (

@@ -43,10 +43,18 @@ const CartItem: FC<{ item: CartItemInterface; renderActions?: boolean }> = ({
                 </div>
                 {renderActions && (
                     <div className={'actions'}>
-                        <Button onClick={removeFromCart} size={Size.medium}>
+                        <Button
+                            onClick={removeFromCart}
+                            size={Size.medium}
+                            data-cy="decrease-cart-item"
+                        >
                             -
                         </Button>
-                        <Button onClick={addItemToCart} size={Size.medium}>
+                        <Button
+                            onClick={addItemToCart}
+                            size={Size.medium}
+                            data-cy="increase-cart-item"
+                        >
                             +
                         </Button>
                     </div>

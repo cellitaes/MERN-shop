@@ -9,7 +9,7 @@ import Button from '../../../shared/components/FormElements/Button';
 
 import { getTotalPrice } from '../../../shared/util/functions/cart';
 
-const Cart: FC<{ orderView: boolean }> = ({ orderView = false }) => {
+const Cart: FC<{ orderView?: boolean }> = ({ orderView = false }) => {
     const cartItems = useSelector((store: RootState) => store.cart.items);
 
     const totalPrice = getTotalPrice(cartItems);
@@ -32,7 +32,9 @@ const Cart: FC<{ orderView: boolean }> = ({ orderView = false }) => {
 
             {!!cartItems.length && !orderView && (
                 <div className="cart-order">
-                    <Button to="/order">Order</Button>
+                    <Button to="/order" data-cy="order-btn">
+                        Order
+                    </Button>
                 </div>
             )}
         </Card>

@@ -152,6 +152,7 @@ const Order = () => {
                                                 !props.isValid
                                             }
                                             type={ButtonType.submit}
+                                            data-cy="place-order-btn"
                                         >
                                             Place order
                                         </Button>
